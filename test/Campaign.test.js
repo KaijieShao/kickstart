@@ -95,5 +95,13 @@ describe("Campaigns", () => {
     balance = web3.utils.fromWei(balance, "ether");
     balance = parseFloat(balance);
     assert(balance > 104);
+
+    it('returns the correct campaign summary', async () => {
+    const summary = await campaign.methods.getSummary().call();
+    // Replace expected values as appropriate for your campaign contract
+    assert.equal(summary[0], accounts[0]); // manager address
+    assert(summary[1] > 0); // minimum contribution or another expected value
+});
+
   });
 });
